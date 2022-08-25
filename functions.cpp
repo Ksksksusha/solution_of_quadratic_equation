@@ -45,7 +45,7 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
             *x1 = (-b)/(2*a);
 
             if(equality(*x1, 0, EPSILON))
-                *x1=0;
+                *x1 = 0;
 
             return ROOTS_ONE;
         }
@@ -56,9 +56,9 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
             *x2 = (-b + sqrt(diskr))/(2*a);
 
             if(equality(*x1, 0, EPSILON))
-                *x1=0;
+                *x1 = 0;
             if(equality(*x1, 0, EPSILON))
-                *x1=0;
+                *x1 = 0;
 
             return ROOTS_TWO;
         }
@@ -207,7 +207,7 @@ bool check_ans(int roots_num, double x1, double x2, FILE *test_file)
 void testing()
 {
     double a = NAN, b = NAN, c = NAN ,x1 = NAN, x2 = NAN;
-    int roots_num = 0, test_num = 0;
+    int roots_num = 0, test_num = 0, rigth_tests_count = 0;
 
     FILE *test_file;
 
@@ -228,10 +228,14 @@ void testing()
         {
             printf("Ошибка произошла на тесте %d\n\n\n", i+1);
         }
+        else
+        {
+            rigth_tests_count++;
+        }
     }
 
     fclose(test_file);
 
-    printf("Тестирование завершено\n");
+    printf("Тестирование завершено.\n" "Выполнено верно тестов %d/%d\n", rigth_tests_count, test_num);
 
 }
