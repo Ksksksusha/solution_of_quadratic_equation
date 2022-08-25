@@ -43,6 +43,10 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
         if(equality(diskr, 0, EPSILON))
         {
             *x1 = (-b)/(2*a);
+
+            if(equality(*x1, 0, EPSILON))
+                *x1=0;
+
             return ROOTS_ONE;
         }
 
@@ -50,6 +54,12 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
         {
             *x1 = (-b - sqrt(diskr))/(2*a);
             *x2 = (-b + sqrt(diskr))/(2*a);
+
+            if(equality(*x1, 0, EPSILON))
+                *x1=0;
+            if(equality(*x1, 0, EPSILON))
+                *x1=0;
+
             return ROOTS_TWO;
         }
 
@@ -77,6 +87,8 @@ int solve_lin_eq(double b, double c, double **x)
     else
     {
         **x = (-c)/b;
+        if(equality(**x, 0, EPSILON))
+            **x=0;
         return 1;
     }
 }
@@ -95,12 +107,6 @@ void output_roots(int roots_num, double x1, double x2)
     case ROOTS_ONE:
 
         ASSERT(isfinite(x1));
-
-        if(equality(x1, 0, EPSILON))
-        {
-            printf("Один корень, он равен 0");
-            break;
-        }
 
         printf("Один корень, он равен %lg", x1);
         break;
@@ -147,25 +153,13 @@ bool check_ans(int roots_num, double x1, double x2, FILE *test_file)
 
     fscanf(test_file, "%d", &right_roots_num);
 
-    if(right_roots_num != roots_num)
-    {
-        if(right_roots_num == -1)
-        {
-            printf("ОШИБКА\n" "Неправильное количество корней\n" "Ожидалось: INF" "Получено: %d\n", roots_num);
-            return false;
-        }
-
-        printf("ОШИБКА\n" "Неправильное количество корней\n" "Ожидалось: %d\n" "Получено: %d\n", right_roots_num, roots_num);
-        return false;
-    }
-
     switch(right_roots_num)
     {
         case ROOTS_ONE:
 
             ASSERT(isfinite(x1));
 
-            scanf("%lg", &right_x1);
+            fscanf(test_file, "%lg", &right_x1);
 
             if(!equality(x1, right_x1, EPSILON))
             {
@@ -180,7 +174,7 @@ bool check_ans(int roots_num, double x1, double x2, FILE *test_file)
             ASSERT(isfinite(x1));
             ASSERT(isfinite(x2));
 
-            scanf("%lg %lg", &right_x1, &right_x2);
+            fscanf(test_file, "%lg %lg", &right_x1, &right_x2);
 
             if(!equality(x1, right_x1, EPSILON) || !equality(x2, right_x2, EPSILON))
             {
@@ -193,6 +187,18 @@ bool check_ans(int roots_num, double x1, double x2, FILE *test_file)
         default:
 
             break;
+    }
+
+    if(right_roots_num != roots_num)
+    {
+        if(right_roots_num == -1)
+        {
+            printf("ОШИБКА\n" "Неправильное количество корней\n" "Ожидалось: INF" "Получено: %d\n", roots_num);
+            return false;
+        }
+
+        printf("ОШИБКА\n" "Неправильное количество корней\n" "Ожидалось: %d\n" "Получено: %d\n", right_roots_num, roots_num);
+        return false;
     }
 
     return true;
