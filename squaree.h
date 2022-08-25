@@ -6,7 +6,7 @@
 #include <assert.h>
 #include <locale>
 
-#define DEBUG_MOD
+//#define DEBUG_MOD
 
 #define ASSERT(condition)                                             \
     if(!(condition))                                                  \
@@ -14,25 +14,58 @@
                #condition, __LINE__, __PRETTY_FUNCTION__, __FILE__);
 
 
-/** @brief calculating number of roots and return them*/
+/**
+@brief calculating number of roots and return them
+@param  a  coefficient near x^2
+@param  b  coefficient near x^1
+@param  c  coefficient near x^0
+@param  x1 first root of square equation
+@param  x2 first root of square equation
+*/
 int calc_roots(double a, double b, double c, double *x1, double *x2);
 
-/** checking input and return coefficients of square equation*/
+/**
+@brief checking input and return coefficients of square equation
+@param  a  coefficient near x^2
+@param  b  coefficient near x^1
+@param  c  coefficient near x^0
+*/
 void check_in(double *a, double *b, double *c);
 
-//output roots of square equation
+/**
+@brief output roots of square equation
+@param roots_num number of roots
+@param  x1       first root of square equation
+@param  x2       first root of square equation
+*/
 void output_roots(int roots_num, double x1, double x2);
 
-//decide linear equation and return root
+/**
+@brief decide linear equation and return root
+@param  b  coefficient near x^1
+@param  c  coefficient near x^0
+@param  x  root of lineal equation
+*/
 int solve_lin_eq(double b, double c, double *x);
 
-//comparing two numbers with certain accuracy
+/**
+@brief comparing two numbers with certain accuracy
+@param x        first number, which we want to compare
+@param y        second number, which we want to compare
+@param epsilon  calculation accuracy
+*/
 bool equality(double x, double y, double epsilon);
 
-//checking are our roots of square equation right
+/**
+@brief checking are our roots of square equation right
+@param roots_num number of roots
+@param x1        first root of square equation
+@param x2        first root of square equation
+@param test_file file with control tests
+*/
 bool check_ans(int roots_num, double x1, double x2, FILE *test_file);
 
-//testing is our program correct
+/** @brief testing is our program correct */
 void testing();
 
 

@@ -57,8 +57,8 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
 
             if(equality(*x1, 0, EPSILON))
                 *x1 = 0;
-            if(equality(*x1, 0, EPSILON))
-                *x1 = 0;
+            if(equality(*x2, 0, EPSILON))
+                *x2 = 0;
 
             return ROOTS_TWO;
         }
