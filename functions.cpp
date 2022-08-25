@@ -34,7 +34,7 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
 
     if(equality(a, 0, EPSILON))
     {
-        return solve_lin_eq(b, c, &x1);
+        return solve_lin_eq(b, c, x1);
     }
     else
     {
@@ -71,7 +71,7 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
     return ERROR;
 }
 
-int solve_lin_eq(double b, double c, double **x)
+int solve_lin_eq(double b, double c, double *x)
 {
     ASSERT(isfinite(b));
     ASSERT(isfinite(c));
@@ -86,9 +86,9 @@ int solve_lin_eq(double b, double c, double **x)
     }
     else
     {
-        **x = (-c)/b;
-        if(equality(**x, 0, EPSILON))
-            **x=0;
+        *x = (-c)/b;
+        if(equality(*x, 0, EPSILON))
+            *x=0;
         return 1;
     }
 }

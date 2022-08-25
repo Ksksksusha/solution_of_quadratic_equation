@@ -1,8 +1,23 @@
 #include "squaree.h"
 
-int main()
+int main(int argc, char *argv[])
 {
+
     setlocale(LC_ALL, "Russian");
+
+    printf("Start");
+    if(argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h')
+    {
+        printf("Hi\n" "Way to your file is  %s", __FILE__);
+        return 0;
+    }
+
+
+    if(argc == 2 && argv[1][0] == '-' && argv[1][1] == 't')
+    {
+        testing();
+        return 0;
+    }
 
     #ifndef DEBUG_MOD
 

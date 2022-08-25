@@ -14,17 +14,17 @@
                #condition, __LINE__, __PRETTY_FUNCTION__, __FILE__);
 
 
-//calculating number of roots and return them
+/** @brief calculating number of roots and return them*/
 int calc_roots(double a, double b, double c, double *x1, double *x2);
 
-//checking input and return coefficients of square equation
+/** checking input and return coefficients of square equation*/
 void check_in(double *a, double *b, double *c);
 
 //output roots of square equation
 void output_roots(int roots_num, double x1, double x2);
 
 //decide linear equation and return root
-int solve_lin_eq(double b, double c, double **x);
+int solve_lin_eq(double b, double c, double *x);
 
 //comparing two numbers with certain accuracy
 bool equality(double x, double y, double epsilon);
