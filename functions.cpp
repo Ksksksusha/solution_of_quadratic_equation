@@ -1,6 +1,5 @@
 #include "squaree.h"
 
-
 void check_in(double *a, double *b, double *c)
 {
     ASSERT(a!=NULL);
@@ -27,10 +26,10 @@ int calc_roots(double a, double b, double c, double *x1, double *x2)
     ASSERT(isfinite(b));
     ASSERT(isfinite(c));
 
-    ASSERT(x1!=NULL);
-    ASSERT(x2!=NULL);
+    ASSERT(x1 != NULL);
+    ASSERT(x2 != NULL);
 
-    ASSERT(x1!=x2);
+    ASSERT(x1 != x2);
 
     if(equality(a, 0, EPSILON))
     {
@@ -87,8 +86,10 @@ int solve_lin_eq(double b, double c, double *x)
     else
     {
         *x = (-c)/b;
+
         if(equality(*x, 0, EPSILON))
-            *x=0;
+            *x = 0;
+
         return ROOTS_ONE;
     }
 }
@@ -208,9 +209,7 @@ void testing()
 {
     double a = NAN, b = NAN, c = NAN ,x1 = NAN, x2 = NAN;
     int roots_num = 0, test_num = 0, rigth_tests_count = 0;
-
     FILE *test_file = NULL;
-
 
     test_file = fopen("C:\\Users\\User\\Documents\\C\\230822\\test.txt", "r");
 
@@ -221,7 +220,6 @@ void testing()
     for(int i=0; i<test_num; i++)
     {
         fscanf(test_file, "%lg %lg %lg", &a, &b, &c);
-
         roots_num = calc_roots(a, b, c, &x1, &x2);
 
         if(!check_ans(roots_num, x1, x2, test_file))

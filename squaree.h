@@ -7,14 +7,12 @@
 #include <locale>
 #include <string.h>
 
-
 //#define DEBUG_MOD
 
 #define ASSERT(condition)                                             \
     if(!(condition))                                                  \
         printf("Error in %s in line %d in function %s in file %s \n", \
                #condition, __LINE__, __PRETTY_FUNCTION__, __FILE__);
-
 
 /**
 @brief calculating number of roots and return it, also calculating roots
@@ -107,7 +105,6 @@ enum number_of_roots
     ROOTS_INF = -1,
     ERROR = -5
 };
-
 
 #endif // SQUARE_H
 
