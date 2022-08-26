@@ -22,3 +22,6 @@ First line is the number of tests, next:
 
 If you want, you can find way to your main file. Add flag "-h" or "-help".
 
+**And finally, there are never too many cats :)**
+
+![Alt-текст](https://www.sunny-cat.ru/datas/users/1-kenny005.jpg)
