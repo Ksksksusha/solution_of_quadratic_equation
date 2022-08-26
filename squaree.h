@@ -6,6 +6,7 @@
 #include <assert.h>
 #include <locale>
 
+
 //#define DEBUG_MOD
 
 #define ASSERT(condition)                                             \
@@ -15,17 +16,21 @@
 
 
 /**
-@brief calculating number of roots and return them
+@brief calculating number of roots and return it, also calculating roots
+
 @param  a  coefficient near x^2
 @param  b  coefficient near x^1
 @param  c  coefficient near x^0
 @param  x1 first root of square equation
 @param  x2 first root of square equation
+
+@return number of roots
 */
 int calc_roots(double a, double b, double c, double *x1, double *x2);
 
 /**
 @brief checking input and return coefficients of square equation
+
 @param  a  coefficient near x^2
 @param  b  coefficient near x^1
 @param  c  coefficient near x^0
@@ -34,6 +39,7 @@ void check_in(double *a, double *b, double *c);
 
 /**
 @brief output roots of square equation
+
 @param roots_num number of roots
 @param  x1       first root of square equation
 @param  x2       first root of square equation
@@ -41,31 +47,42 @@ void check_in(double *a, double *b, double *c);
 void output_roots(int roots_num, double x1, double x2);
 
 /**
-@brief decide linear equation and return root
+@brief decide linear equation and calculate root
+
 @param  b  coefficient near x^1
 @param  c  coefficient near x^0
 @param  x  root of lineal equation
+
+@return number of roots of lineal equation
 */
 int solve_lin_eq(double b, double c, double *x);
 
 /**
 @brief comparing two numbers with certain accuracy
+
 @param x        first number, which we want to compare
 @param y        second number, which we want to compare
 @param epsilon  calculation accuracy
+
+@return are two numbers approximately equal
 */
 bool equality(double x, double y, double epsilon);
 
 /**
 @brief checking are our roots of square equation right
+
 @param roots_num number of roots
 @param x1        first root of square equation
 @param x2        first root of square equation
 @param test_file file with control tests
+
+@return true(our answer is right) false(our answer is wrong)
 */
 bool check_ans(int roots_num, double x1, double x2, FILE *test_file);
 
-/** @brief testing is our program correct */
+/**
+@brief testing if our program is correct
+*/
 void testing();
 
 

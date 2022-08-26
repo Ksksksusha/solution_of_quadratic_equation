@@ -1,5 +1,13 @@
 #include "squaree.h"
 
+/**
+
+@detailed  Hi there! This program can calculate roots of square equation and output them.
+If u want check this programm u can use DEBUG_MOD or flag "-t"
+
+*/
+
+
 int main(int argc, char *argv[])
 {
 

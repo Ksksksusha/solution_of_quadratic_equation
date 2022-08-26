@@ -89,7 +89,7 @@ int solve_lin_eq(double b, double c, double *x)
         *x = (-c)/b;
         if(equality(*x, 0, EPSILON))
             *x=0;
-        return 1;
+        return ROOTS_ONE;
     }
 }
 
