@@ -209,7 +209,7 @@ void testing()
     double a = NAN, b = NAN, c = NAN ,x1 = NAN, x2 = NAN;
     int roots_num = 0, test_num = 0, rigth_tests_count = 0;
 
-    FILE *test_file;
+    FILE *test_file = NULL;
 
 
     test_file = fopen("C:\\Users\\User\\Documents\\C\\230822\\test.txt", "r");

@@ -13,14 +13,14 @@ int main(int argc, char *argv[])
 
     setlocale(LC_ALL, "Russian");
 
-    if(argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h')
+    if(argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "-help") == 0))
     {
         printf("Hi\n" "Way to your file is  %s", __FILE__);
         return 0;
     }
 
 
-    if(argc == 2 && argv[1][0] == '-' && argv[1][1] == 't')
+    if(argc == 2 && (strcmp(argv[1], "-t") == 0 || strcmp(argv[1], "-test") == 0))
     {
         testing();
         return 0;

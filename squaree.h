@@ -5,6 +5,7 @@
 #include <math.h>
 #include <assert.h>
 #include <locale>
+#include <string.h>
 
 
 //#define DEBUG_MOD
@@ -85,9 +86,19 @@ bool check_ans(int roots_num, double x1, double x2, FILE *test_file);
 */
 void testing();
 
-
+/**
+@brief precision of comparison of numbers
+*/
 const double EPSILON = 1e-6;
 
+/**
+@brief constants of number of roots
+0  - no roots
+1  - one root
+2  - two roots
+-1 - infinity of roots
+-5 - we have unknown mistake in function
+*/
 enum
 {
     ROOTS_ZERO = 0,
