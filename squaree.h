@@ -99,7 +99,7 @@ const double EPSILON = 1e-6;
 -1 - infinity of roots
 -5 - we have unknown mistake in function
 */
-enum
+enum number_of_roots
 {
     ROOTS_ZERO = 0,
     ROOTS_ONE = 1,
